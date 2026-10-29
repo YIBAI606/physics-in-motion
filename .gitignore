@@ -1,0 +1,23 @@
+# Generated simulation data and rendered media
+generated/
+renders/
+media/
+work/
+
+# Python local environments and caches (if used)
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# JavaScript local dependencies (if used)
+node_modules/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
