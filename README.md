@@ -9,6 +9,7 @@ Code-driven visualizations for quantum mechanics and thermal statistical physics
 ## 项目入口
 - [项目立项 v0.1](docs/project-charter.md)
 - [制作规范 v0.1](docs/production-guide.md)
+- [工具链评估 v0.1](docs/toolchain.md)
 - [热统系列与首期候选](series/thermal-statistical/README.md)
 - [量子力学系列](series/quantum/README.md)
 - [共享组件](shared/README.md)
