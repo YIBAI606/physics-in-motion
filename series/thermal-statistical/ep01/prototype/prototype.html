@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>忆白 · 10 × 10｜热统第一期动画原型</title>
+<style>html{background:#0c111c;color:#e9edf5;font:16px system-ui,'Noto Sans CJK SC',sans-serif}body{max-width:1280px;margin:24px auto;padding:0 16px}h1{font-size:19px;font-weight:500}canvas{width:100%;aspect-ratio:16/9;background:#101725;border:1px solid #25334b;border-radius:12px}nav{display:flex;gap:12px;align-items:center;margin:15px 0}button{background:#25344b;color:white;border:1px solid #48617d;border-radius:7px;padding:9px 15px;cursor:pointer}input{flex:1;min-width:60px;accent-color:#55d6c2}p{color:#a8b4c8;font-size:14px;line-height:1.7}button:focus-visible,input:focus-visible{outline:2px solid #55d6c2}#time{min-width:90px;font-variant-numeric:tabular-nums}</style>
+<h1>不会物理的忆白 · 从粒子到热 01</h1>
+<canvas id="scene" width="1280" height="720" aria-label="三份能量在三个振子中的十种配置，以及左右组合形成一百种微观状态"></canvas>
+<nav><button id="play">播放</button><button id="restart">重播</button><input id="seek" type="range" min="0" max="42" step="0.01" value="0" aria-label="动画进度"><span id="time">0.0 / 42秒</span></nav>
+<p>无配音视觉原型 · 42秒 · 下载后可离线打开。空格播放／暂停，可拖动进度。格子代表有标签的振子，白块代表相同大小的激发能；本片是配置计数，不是真实能量交换过程。</p>
+<script>
+'use strict';
+const c=document.getElementById('scene'),g=c.getContext('2d');
+const A='#58dac7',B='#ffb76c',ink='#edf2fa',muted='#94a5bd';
+const configs=[];for(let a=3;a>=0;a--)for(let b=3-a;b>=0;b--)configs.push([a,b,3-a-b]);
+configs.sort((a,b)=>{const group=v=>v.includes(3)?0:v.includes(2)?1:2;return group(a)-group(b)});
+const pairs=configs.flatMap(a=>configs.map(b=>[...a,...b]));
+if(configs.length!==10||new Set(configs.map(String)).size!==10||pairs.length!==100||new Set(pairs.map(String)).size!==100||pairs.some(v=>v.reduce((a,b)=>a+b,0)!==6))throw Error('Invalid enumeration');
+window.model={configs,pairs};
+function text(s,x,y,size=24,col=ink,align='left'){g.fillStyle=col;g.font=`${size}px "Noto Sans CJK SC", "Microsoft YaHei", sans-serif`;g.textAlign=align;g.textBaseline='middle';g.fillText(s,x,y)}
+function box(x,y,w,h,r=8,fill='#182336',stroke='#304259'){g.beginPath();g.roundRect(x,y,w,h,r);g.fillStyle=fill;g.fill();if(stroke){g.strokeStyle=stroke;g.lineWidth=1.2;g.stroke()}}
+function card(v,x,y,w,h,color,alpha=1,label=true){g.save();g.globalAlpha=alpha;box(x,y,w,h,7,'#172335',color);const cw=w/3;for(let k=0;k<3;k++){if(k){g.strokeStyle='#3a495f';g.beginPath();g.moveTo(x+k*cw,y+7);g.lineTo(x+k*cw,y+h-7);g.stroke()}for(let j=0;j<v[k];j++)box(x+k*cw+cw*.22,y+h-10-(j+1)*(h*.19),cw*.56,h*.14,2,ink,null)}if(label&&w>95)text(v.join(' , '),x+w/2,y+h+19,16,muted,'center');g.restore()}
+const clamp=x=>Math.max(0,Math.min(1,x));const smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
+function header(n,title){text('忆白 / 从粒子到热',52,38,17,muted);text('视觉原型 · 配置计数',1228,38,16,muted,'right');text(n,52,91,18,A);text(title,100,92,34);}
+function caption(s){box(42,626,1196,62,10,'#192437',null);text(s,640,657,24,ink,'center')}
+function gridPosition(i){return [65+(i%5)*240,205+Math.floor(i/5)*190]}
+function render(t){g.clearRect(0,0,1280,720);g.fillStyle='#101725';g.fillRect(0,0,1280,720);
+ if(t<16){header('01','三份能量，可以怎样放进三个振子？');text('系统 A · 总能量始终为 3ε',52,147,21,A);let count=t<5?Math.min(3,1+Math.floor(t/1.5)):t<12?Math.min(9,3+Math.floor((t-5)/1.05)+1):10;
+ for(let i=0;i<10;i++){const [x,y]=gridPosition(i);if(i<count){const born=i<3?i*1.5:i<9?5+(i-3)*1.05:12;card(configs[i],x,y,184,100,A,smooth((t-born)/.5));text(i<3?'全部在一个振子':i<9?'两份 + 一份':'每个各一份',x+92,y+145,17,muted,'center')}else{g.globalAlpha=.22;box(x,y,184,100);g.globalAlpha=1}}
+ text(`${count} / 10 种`,1228,147,22,A,'right');caption(t<5?'三份全在一个振子里：3种配置。':t<12?'两份放一格，一份放另一格：再加6种。':'最后每格一份：3 + 6 + 1 = 10种。');
+ }else if(t<24){header('02','左右各三份，分别都有十种配置');let p=smooth((t-16)/1.5);text('系统 A',320,165,25,A,'center');text('系统 B',960,165,25,B,'center');for(let i=0;i<10;i++){let x=90+(i%2)*245,y=205+Math.floor(i/2)*73;card(configs[i],x,y,160,52,A,1,false);card(configs[i],x+640,y,160,52,B,p,false)}text('10种',320,592,29,A,'center');text('10种',960,592,29,B,'center');text('×',640,375,55,ink,'center');caption('左边每一种配置，都能搭配右边全部十种。');
+ }else{header('03','一行十种，十行就是一百种');const sx=307,sy=213,dx=57,dy=34;for(let j=0;j<10;j++){card(configs[j],sx+j*dx,160,48,43,B,1,false);card(configs[j],244,sy+j*dy-1,48,29,A,1,false)}text('B 的10种配置 →',590,140,19,B,'center');text('A',264,195,17,A,'center');let filled=t<29?Math.min(10,Math.floor((t-24)*2.4)+1):Math.min(100,10+Math.floor((t-29)*15));let active=Math.min(filled-1,99);let row=Math.floor(active/10),col=active%10;
+ for(let i=0;i<10;i++)for(let j=0;j<10;j++){const k=i*10+j,x=sx+j*dx,y=sy+i*dy;box(x,y,49,26,4,k<filled?'#23463e':'#172335',k===active?'#f4e4aa':'#304259');if(k<filled)text('·',x+24,y+13,22,A,'center')}
+ text('每一格 = 一种完整的六振子配置',580,581,19,muted,'center');
+ text('当前组合',1058,205,20,muted,'center');card(configs[row],935,246,110,83,A,1,false);card(configs[col],1070,246,110,83,B,1,false);text('A：3份',990,350,18,A,'center');text('B：3份',1125,350,18,B,'center');text(`${filled}`,1058,430,68,ink,'center');text('/ 100 种组合',1058,487,21,muted,'center');
+ if(t>=35){text('10 × 10 = 100',1058,553,25,ink,'center');caption('同一个宏观结果“3份｜3份”，包含100种不同的微观状态。')}else caption(t<29?'固定左边的一种配置，右边有十种搭配。':'换一种左边配置，又得到十种新的搭配。');
+ }g.fillStyle=A;g.fillRect(0,712,1280*t/42,3);}
+let t=0,playing=false,last=0;const play=document.getElementById('play'),seek=document.getElementById('seek'),time=document.getElementById('time');
+function update(){render(t);seek.value=t;time.textContent=t.toFixed(1)+' / 42秒';play.textContent=playing?'暂停':'播放'}
+window.seekTo=v=>{t=Math.max(0,Math.min(42,v));update()};
+function toggle(){if(t>=42)t=0;playing=!playing;last=performance.now();update()}
+play.onclick=toggle;document.getElementById('restart').onclick=()=>{t=0;playing=true;last=performance.now();update()};seek.oninput=()=>{t=Number(seek.value);last=performance.now();update()};
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&!['INPUT','BUTTON'].includes(document.activeElement.tagName)){e.preventDefault();toggle()}});
+function tick(now){if(playing){t=Math.min(42,t+(now-last)/1000);if(t>=42)playing=false;update()}last=now;requestAnimationFrame(tick)}update();requestAnimationFrame(tick);
+</script></html>
