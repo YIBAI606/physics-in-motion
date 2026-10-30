@@ -1,6 +1,6 @@
 # 配音样片 v0.1
 
-[在线播放与下载](https://yibai-thermal-preview.superbat66.chatgpt.site)
+[在线播放与下载](https://yibai-thermal-preview.levitrevor2521263504.chatgpt.site)
 
 已生成 42 秒 MP4：1280×720、30 fps、H.264 视频、AAC 中文 AI 配音、烧录字幕。页面另提供 SRT 和制作文件 ZIP，包含逐句 WAV、完整配音、时间轴、合成与渲染脚本、原型源文件。模型不打包。
 
