@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "time_unit": "seconds",
+  "status": "template_not_production",
+  "episode": "待填",
+  "segments": [
+    {
+      "id": "S01",
+      "text": "替换为定稿旁白。",
+      "scene": "opening",
+      "source_start": 0,
+      "source_end": 8,
+      "target_start": null,
+      "target_end": null,
+      "audio_file": "audio/S01.wav",
+      "visual_events": [
+        {
+          "id": "E01",
+          "description": "关键对象出现",
+          "source_time": 2,
+          "target_time": null
+        }
+      ],
+      "subtitle_lines": [
+        "替换为定稿旁白。"
+      ],
+      "alignment": {
+        "method": null,
+        "confidence": null,
+        "reviewed": false,
+        "notes": "target_* 待最终配音确定后填写。"
+      }
+    }
+  ]
+}
