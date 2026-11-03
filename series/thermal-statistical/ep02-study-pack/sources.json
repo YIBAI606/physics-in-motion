@@ -1,0 +1,23 @@
+[
+  {
+    "id": "01",
+    "title": "Moore & Schroeder (1997), A different approach to introducing statistical mechanics",
+    "url": "https://arxiv.org/pdf/1502.07051",
+    "file": "01_Moore_Schroeder_1997.pdf",
+    "read": "全文；重点：爱因斯坦固体、相互作用系统、温度。"
+  },
+  {
+    "id": "02",
+    "title": "David Tong, Statistical Physics",
+    "url": "https://davidtong.org/pdfs/teaching/statistical-physics/statphys.pdf",
+    "file": "02_Tong_Statistical_Physics.pdf",
+    "read": "第1章微正则系综、温度、正则系综、能量涨落；第2章能量均分。"
+  },
+  {
+    "id": "03",
+    "title": "OpenStax, University Physics Volume 2",
+    "url": "https://assets.openstax.org/oscms-prodcms/media/documents/UniversityPhysicsVolume2-WEB_5eNhMSa.pdf",
+    "file": "03_OpenStax_University_Physics_Volume_2.pdf",
+    "read": "1.1 温度与热平衡；3.2 功、热与内能。"
+  }
+]

@@ -1,0 +1,74 @@
+# 不会物理的忆白｜热统第二期资料包
+
+选题：《热平衡，为什么不等于能量平分？》
+整理日期：2026-11-03
+
+## 当前下载状态
+本包是学习指南和下载工具包，尚未包含文献原始 PDF。云端代理对文献网站返回 403，申请本轮网络权限后仍受站点白名单限制。不要将本包视为已下载完成的全文合集。
+
+## 使用方法
+先打开「学习指南.html」，可离线阅读中文指南并点击官方链接。
+Windows：右键 download.ps1，选择“使用 PowerShell 运行”，或在当前目录终端执行 powershell -NoProfile -File .\download.ps1。若系统策略不允许运行，请直接通过指南中的官方链接下载，无需更改系统策略。
+安装了 Python 3 的电脑也可运行 python download.py。
+下载脚本仅从 sources.json 列出的三个官方链接获取 PDF，保存到 pdf 目录；检查文件头，失败时明确报告。下载后可把整个目录重新压缩。
+
+## 阅读顺序
+1. OpenStax 1.1、3.2：温度、内能、热量的区别。
+2. Moore–Schroeder 论文：状态计数如何给出能量分配概率。
+3. Schroeder 教材 2.2、2.3、3.1：建立完整推导。
+4. Tong 第1章，再补第2章能量均分：核对温度和涨落的适用条件。
+5. Gould–Tobochnik 第2—4章：结合概率计算练习。
+
+## 文献与获取说明
+### Moore & Schroeder（核心论文，免费全文）
+Thomas A. Moore and Daniel V. Schroeder. A different approach to introducing statistical mechanics. American Journal of Physics 65(1), 26–36 (1997). DOI: 10.1119/1.18490。
+https://arxiv.org/abs/1502.07051
+PDF: https://arxiv.org/pdf/1502.07051
+2015 是 arXiv 上传年份，论文出版年份为 1997。
+
+### David Tong（免费讲义）
+课程主页：https://davidtong.org/teaching/statistical-physics/
+PDF: https://davidtong.org/pdfs/teaching/statistical-physics/statphys.pdf
+先读第1章中的微正则系综、温度、正则系综、能量涨落；第2章的能量均分用于辨别概念。
+
+### OpenStax（免费教材）
+温度与热平衡：https://openstax.org/books/university-physics-volume-2/pages/1-1-temperature-and-thermal-equilibrium
+功、热与内能：https://openstax.org/books/university-physics-volume-2/pages/3-2-work-heat-and-internal-energy
+PDF 下载地址见 sources.json。
+
+### Daniel V. Schroeder（商业教材，全文未收录）
+An Introduction to Thermal Physics.
+官方入口：https://physics.weber.edu/thermal/default.html
+推荐 2.2 The Einstein Model of a Solid、2.3 Interacting Systems、3.1 Temperature。
+作者提供免费节选和补充材料；完整教材请通过图书馆或正规购买获取。
+
+### Harvey Gould & Jan Tobochnik（免费在线讲义，保留官方入口）
+Statistical and Thermal Physics 配套讲义：https://stp.clarku.edu/notes/
+第2章 Thermodynamic Concepts and Processes；第3章 Concepts of Probability；第4章 The Methodology of Statistical Mechanics。
+页面提供各章 PDF。作者页面要求复制或分发前联系作者，因此本包只提供入口，供读者自行访问。
+
+## 本期学习目标
+- 能解释同温为什么不要求同总内能。
+- 能写出相同频率振子的状态数 Omega(N,q)=C(q+N-1,q)。N 指一维振子数量，不直接等于三维固体原子数。
+- 对弱耦合、总能量固定、可及微观状态等概率的模型，能由两边状态数的乘积得到 P(q_A)。
+- 区分平均值、最可能值和单次观测值。
+- 理解平衡中的微观交换和涨落仍然存在。
+
+## 科学核对
+同样的振子、同温的正则系综中，平均激发能为 N*epsilon/(exp(epsilon/(k_B*T))-1)，已减去零点能。这是模型结论，不能直接推广为不同物质同温时每个粒子总能量都相等。
+温度不是一般意义上的“每个粒子的平均能量”；经典能量均分定理针对符合条件的二次型项，不能理解为两个物体平分总能量。
+宏观热平衡可由总熵极大导出两边温度相等；不要为极小系统每个瞬时分配强行指定宏观温度。
+
+例子：N_A=6、N_B=3、q_total=9。
+P(q_A) 正比于 C(q_A+5,5)*C(11-q_A,2)。
+总状态数 24310；平均 q_A=6，最可能 q_A=7。
+所以 6:3 是平均分配，7:2 才是此例最可能的单个分配；不能说系统最后一定停在其中一个分配。
+附带 verify_counts.py 和 counts.csv 是本资料包自行计算的结果，不是论文原始数据。
+
+## 自测
+1. 相同温度的一杯水与一桶水，为什么不需要具有相同内能？说明比较所用的物质和参考状态。
+2. 为什么宏观分配状态不等概率，而模型假定可及微观状态等概率？
+3. 6:3 的平均分配与 7:2 的概率峰为什么不矛盾？
+4. 增加系统规模时，绝对涨落和相对涨落是否一定同向变化？
+
+保留原文署名与版权信息。中文指南是学习辅助，不是原文译本。
