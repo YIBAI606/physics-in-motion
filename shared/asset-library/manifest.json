@@ -1,0 +1,138 @@
+[
+  {
+    "id": "metal-block",
+    "title": "金属块",
+    "path": "objects/metal-block.svg",
+    "type": "svg",
+    "tags": [
+      "objects",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "中性灰材质不编码温度；高光是视觉表现，不是温度场。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "wood-block",
+    "title": "木块",
+    "path": "objects/wood-block.svg",
+    "type": "svg",
+    "tags": [
+      "objects",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "木纹仅表达材质；此棕色不表示高于金属的温度。与金属保持相同外形和尺寸。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "finger-contact",
+    "title": "手指接触示意",
+    "path": "objects/finger-contact.svg",
+    "type": "svg",
+    "tags": [
+      "objects",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "手指轮廓仅作教学示意，无解剖精度；接触面位置需在镜头中对齐。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "heat-flow",
+    "title": "热流方向箭头",
+    "path": "science/heat-flow.svg",
+    "type": "svg",
+    "tags": [
+      "science",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "箭头朝向表示热流方向；粗细未经模型标定时不能解释为热流数值。默认无粒子载体暗示。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "temperature-scale",
+    "title": "统一温度色阶",
+    "path": "science/temperature-scale.svg",
+    "type": "svg",
+    "tags": [
+      "science",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "跨材料和镜头固定 Tmin/Tmax；未给出数值时只是温度高低图例，不是测量结果。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "thermometer",
+    "title": "温度计空白组件",
+    "path": "science/thermometer.svg",
+    "type": "svg",
+    "tags": [
+      "science",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "不含预设读数；填充高度目前是造型占位，正式视频应与温度值绑定。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "contact-section",
+    "title": "接触面截面模板",
+    "path": "templates/contact-section.svg",
+    "type": "svg",
+    "tags": [
+      "templates",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "空白截面容器，不是温度场。需接入相同坐标和同一温标的场函数后用于科学推演。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  },
+  {
+    "id": "citation-card",
+    "title": "文献证据卡占位模板",
+    "path": "templates/citation-card.svg",
+    "type": "svg",
+    "tags": [
+      "templates",
+      "ep03"
+    ],
+    "source": "项目内程序化原创",
+    "source_url": null,
+    "third_party": false,
+    "version": "0.1.0",
+    "status": "ready-for-review",
+    "scientific_notes": "只是版式占位，不是论文截图；正式使用必须替换为已核对且有权使用的原文。",
+    "usage": "作为项目素材使用；不含第三方图片。公开再授权遵循仓库后续许可证。"
+  }
+]
