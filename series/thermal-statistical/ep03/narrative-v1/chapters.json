@@ -1,0 +1,47 @@
+[
+  {
+    "title": "开头",
+    "start": 0,
+    "duration": 30.0
+  },
+  {
+    "title": "Black与潜热",
+    "start": 30.0,
+    "duration": 40.0
+  },
+  {
+    "title": "潜热解释",
+    "start": 70.0,
+    "duration": 40.0
+  },
+  {
+    "title": "Fourier与预测",
+    "start": 110.0,
+    "duration": 40.0
+  },
+  {
+    "title": "温度场与曲线",
+    "start": 150.0,
+    "duration": 40.0
+  },
+  {
+    "title": "热感受率",
+    "start": 190.0,
+    "duration": 46.0
+  },
+  {
+    "title": "条件反转",
+    "start": 236.0,
+    "duration": 48.0
+  },
+  {
+    "title": "实验回扣",
+    "start": 284.0,
+    "duration": 48.0
+  },
+  {
+    "title": "情感结尾",
+    "start": 332.0,
+    "duration": 77.0
+  }
+]
